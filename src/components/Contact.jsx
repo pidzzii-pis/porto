@@ -127,7 +127,7 @@ export default function Contact() {
 
                     {/* Discord */}
                     <a
-                        href="https://discord.com/users/pizzpnyz"
+                        href="https://discord.com/users/740001334312304721"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.06]"
