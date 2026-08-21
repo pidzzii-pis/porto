@@ -2,21 +2,21 @@ import { motion } from "motion/react";
 
 const achievements = [
     {
-        title: "-",
-        issuer: "-",
+        title: "Coming Soon",
+        issuer: "Sertifikat sedang dalam proses",
         year: "",
         link: "",
     },
     {
-        title: "-",
-        issuer: "-",
-        year: "-",
+        title: "Coming Soon",
+        issuer: "Sertifikat sedang dalam proses",
+        year: "",
         link: "",
     },
     {
-        title: "-",
-        issuer: "-",
-        year: "-",
+        title: "Coming Soon",
+        issuer: "Sertifikat sedang dalam proses",
+        year: "",
         link: "",
     },
 ];
@@ -50,12 +50,13 @@ export default function Achievements() {
                     </p>
 
                     <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
-                       Certificate{" "}
-                        <span className="text-zinc-500">& Achievement.</span>
+                        Sertifikat{" "}
+                        <span className="text-zinc-500">& Pencapaian.</span>
                     </h2>
 
                     <p className="mt-4 max-w-xl leading-7 text-zinc-500">
-                       Some of the certifications and achievements I have earned during my studies and competitions.
+                        Beberapa sertifikasi dan pencapaian yang pernah
+                        saya dapatkan selama belajar dan berkompetisi.
                     </p>
                 </motion.div>
 
@@ -65,6 +66,7 @@ export default function Achievements() {
                         const linkProps = item.link
                             ? { href: item.link, target: "_blank", rel: "noopener noreferrer" }
                             : {};
+                        const isComingSoon = item.title === "Coming Soon";
 
                         return (
                             <motion.div
@@ -76,29 +78,45 @@ export default function Achievements() {
                             >
                                 <Wrapper
                                     {...linkProps}
-                                    className="group flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+                                    className={`group flex h-full flex-col rounded-3xl border p-6 transition-all duration-500 ${
+                                        isComingSoon
+                                            ? "border-white/5 bg-white/[0.015] hover:border-white/10"
+                                            : "border-white/10 bg-white/[0.03] hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
+                                    }`}
                                 >
                                     <div className="flex items-center justify-between">
-                                        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-amber-400/20 bg-amber-500/10 text-amber-400 transition-transform duration-500 group-hover:scale-110">
+                                        <div
+                                            className={`flex h-12 w-12 items-center justify-center rounded-xl border transition-transform duration-500 group-hover:scale-110 ${
+                                                isComingSoon
+                                                    ? "border-white/10 bg-white/[0.03] text-zinc-600"
+                                                    : "border-amber-400/20 bg-amber-500/10 text-amber-400"
+                                            }`}
+                                        >
                                             <MedalIcon />
                                         </div>
 
-                                        <span className="text-xs uppercase tracking-[0.2em] text-zinc-600">
-                                            {item.year}
-                                        </span>
+                                        {item.year && (
+                                            <span className="text-xs uppercase tracking-[0.2em] text-zinc-600">
+                                                {item.year}
+                                            </span>
+                                        )}
                                     </div>
 
-                                    <h3 className="mt-5 text-lg font-medium leading-snug">
+                                    <h3
+                                        className={`mt-5 text-lg font-medium leading-snug ${
+                                            isComingSoon ? "text-zinc-500" : ""
+                                        }`}
+                                    >
                                         {item.title}
                                     </h3>
 
-                                    <p className="mt-2 text-sm text-zinc-500">
+                                    <p className="mt-2 text-sm text-zinc-600">
                                         {item.issuer}
                                     </p>
 
                                     {item.link && (
                                         <span className="mt-4 inline-flex items-center gap-1 text-xs text-zinc-600 transition duration-300 group-hover:text-amber-400">
-                                           View certificate
+                                            Lihat sertifikat
                                             <span className="transition duration-500 group-hover:translate-x-1">→</span>
                                         </span>
                                     )}
