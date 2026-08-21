@@ -3,19 +3,19 @@ import { motion } from "motion/react";
 const achievements = [
     {
         title: "Coming Soon",
-        issuer: "Sertifikat sedang dalam proses",
+        issuer: "The certificate is currently being processed.",
         year: "",
         link: "",
     },
     {
         title: "Coming Soon",
-        issuer: "Sertifikat sedang dalam proses",
+        issuer: "The certificate is currently being processed.",
         year: "",
         link: "",
     },
     {
         title: "Coming Soon",
-        issuer: "Sertifikat sedang dalam proses",
+        issuer: "The certificate is currently being processed.",
         year: "",
         link: "",
     },
@@ -50,13 +50,12 @@ export default function Achievements() {
                     </p>
 
                     <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
-                        Sertifikat{" "}
-                        <span className="text-zinc-500">& Pencapaian.</span>
+                        Certificate{" "}
+                        <span className="text-zinc-500">& Achievement.</span>
                     </h2>
 
                     <p className="mt-4 max-w-xl leading-7 text-zinc-500">
-                        Beberapa sertifikasi dan pencapaian yang pernah
-                        saya dapatkan selama belajar dan berkompetisi.
+                        Some of the certifications and achievements I have earned during my studies and competitions.
                     </p>
                 </motion.div>
 
@@ -116,7 +115,7 @@ export default function Achievements() {
 
                                     {item.link && (
                                         <span className="mt-4 inline-flex items-center gap-1 text-xs text-zinc-600 transition duration-300 group-hover:text-amber-400">
-                                            Lihat sertifikat
+                                            View certificate
                                             <span className="transition duration-500 group-hover:translate-x-1">→</span>
                                         </span>
                                     )}
