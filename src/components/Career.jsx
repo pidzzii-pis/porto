@@ -3,19 +3,19 @@ import Counter from "./Counter.jsx";
 
 const timeline = [
     {
-        period: "PENDIDIKAN",
+        period: "EDUCATION",
         title: "MTS MUHAMMADIYAH 1 MALANG",
         status: "Completed",
         description:
-            "Masa pendidikan sekolah menengah pertama yang menjadi awal perjalanan pendidikan saya.",
+            "The period of junior high school was the beginning of my educational journey.",
         link: "https://mtsmuh1malang.sch.id/",
     },
     {
-        period: "PENDIDIKAN",
+        period: "EDUCATION",
         title: "SMK PGRI 3 MALANG RPL",
         status: "Ongoing",
         description:
-            "Mempelajari pemrograman, web development, database, mobile development, dan pengembangan aplikasi.",
+            "Learning programming, web development, databases, mobile development, and application development..",
         link: "https://skariga.web.id/",
     },
 ];
@@ -47,15 +47,12 @@ export default function Career() {
                     </h2>
 
                     <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-400 md:text-lg">
-                        Saya adalah pelajar yang memiliki ketertarikan pada
-                        teknologi dan pengembangan perangkat lunak. Perjalanan
-                        saya dimulai dari sekolah menengah hingga sekarang
-                        mempelajari Rekayasa Perangkat Lunak.
+                       I am a student with an interest in technology and software development. My journey began in high school and continues to this day as I study Software Engineering.
                     </p>
 
                     <div className="mt-12 grid max-w-md grid-cols-3 gap-6">
-                        <Counter value={2} suffix="+" label="Tahun Belajar" />
-                        <Counter value={10} suffix="+" label="Teknologi" />
+                        <Counter value={2} suffix="+" label="Academic Year" />
+                        <Counter value={10} suffix="+" label="Technology" />
                         <Counter value={5} suffix="+" label="Project" />
                     </div>
                 </motion.div>

@@ -39,7 +39,6 @@ export default function Achievements() {
             <div className="pointer-events-none absolute -right-40 top-10 h-[400px] w-[400px] rounded-full bg-amber-500/[0.04] blur-[130px]" />
 
             <div className="relative mx-auto max-w-6xl">
-
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -51,13 +50,12 @@ export default function Achievements() {
                     </p>
 
                     <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
-                        Sertifikat{" "}
-                        <span className="text-zinc-500">& Pencapaian.</span>
+                       Certificate{" "}
+                        <span className="text-zinc-500">& Achievement.</span>
                     </h2>
 
                     <p className="mt-4 max-w-xl leading-7 text-zinc-500">
-                        Beberapa sertifikasi dan pencapaian yang pernah
-                        saya dapatkan selama belajar dan berkompetisi.
+                       Some of the certifications and achievements I have earned during my studies and competitions.
                     </p>
                 </motion.div>
 
@@ -70,7 +68,7 @@ export default function Achievements() {
 
                         return (
                             <motion.div
-                                key={item.title}
+                                key={index}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.3 }}
@@ -100,7 +98,7 @@ export default function Achievements() {
 
                                     {item.link && (
                                         <span className="mt-4 inline-flex items-center gap-1 text-xs text-zinc-600 transition duration-300 group-hover:text-amber-400">
-                                            Lihat sertifikat
+                                           View certificate
                                             <span className="transition duration-500 group-hover:translate-x-1">→</span>
                                         </span>
                                     )}
@@ -109,7 +107,6 @@ export default function Achievements() {
                         );
                     })}
                 </div>
-
             </div>
         </section>
     );

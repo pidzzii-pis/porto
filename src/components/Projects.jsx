@@ -70,7 +70,7 @@ const projects = [
     {
         title: "Sistem Pendataan Loker",
         description:
-            "Sistem untuk melakukan pendataan barang pada loker sekolah menggunakan web development dan database.",
+            "A system for tracking items in school lockers using web development and a database..",
         image: "/loker.png",
         url: "loker.sekolahku.sch.id",
         accent: "indigo",
@@ -82,7 +82,7 @@ const projects = [
     {
         title: "Finance Tracker",
         description:
-            "Aplikasi pencatatan pemasukan dan pengeluaran untuk membantu mengelola keuangan.",
+            "An income and expense tracking app to help manage finances.",
         image: "/finance.png",
         url: "finance-tracker.vercel.app",
         accent: "amber",
@@ -121,8 +121,8 @@ export default function Projects() {
                         </h2>
 
                         <p className="mt-4 max-w-lg leading-7 text-zinc-500">
-                            Beberapa project yang pernah saya kerjakan,
-                            dari sistem sekolah hingga aplikasi pribadi.
+                           Some of the projects I have worked on,
+                            ranging from school systems to personal applications.
                         </p>
                     </div>
 
