@@ -3,6 +3,7 @@ import React, { useState, useCallback } from "react";
 import Preloader from "./components/Preloader.jsx";
 import Navbar from "./components/Navbar.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
+import CursorGlow from "./components/CursorGlow.jsx";
 import Home from "./pages/Home";
 import Career from "./components/Career.jsx";
 import Skills from "./components/Skills.jsx";
@@ -25,6 +26,7 @@ export default function App() {
 
             {!loading && (
                 <>
+                    <CursorGlow />
                     <ScrollProgress />
                     <Navbar />
                     <KeyboardNav />

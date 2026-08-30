@@ -1,0 +1,33 @@
+import { useEffect } from "react";
+import { motion, useMotionValue, useSpring } from "motion/react";
+
+export default function CursorGlow() {
+    const x = useMotionValue(-300);
+    const y = useMotionValue(-300);
+
+    // Spring biar gerakannya halus "lag" mengikuti mouse, tidak nempel kaku
+    const springX = useSpring(x, { stiffness: 50, damping: 20, mass: 0.5 });
+    const springY = useSpring(y, { stiffness: 50, damping: 20, mass: 0.5 });
+
+    useEffect(() => {
+        const handleMove = (e) => {
+            x.set(e.clientX);
+            y.set(e.clientY);
+        };
+
+        window.addEventListener("mousemove", handleMove);
+        return () => window.removeEventListener("mousemove", handleMove);
+    }, [x, y]);
+
+    return (
+        <motion.div
+            style={{
+                x: springX,
+                y: springY,
+                translateX: "-50%",
+                translateY: "-50%",
+            }}
+            className="pointer-events-none fixed left-0 top-0 z-40 hidden h-[500px] w-[500px] rounded-full bg-white/[0.04] blur-[110px] mix-blend-screen md:block"
+        />
+    );
+}
