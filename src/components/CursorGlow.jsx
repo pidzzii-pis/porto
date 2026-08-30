@@ -5,7 +5,6 @@ export default function CursorGlow() {
     const x = useMotionValue(-300);
     const y = useMotionValue(-300);
 
-    // Spring biar gerakannya halus "lag" mengikuti mouse, tidak nempel kaku
     const springX = useSpring(x, { stiffness: 50, damping: 20, mass: 0.5 });
     const springY = useSpring(y, { stiffness: 50, damping: 20, mass: 0.5 });
 
@@ -26,8 +25,10 @@ export default function CursorGlow() {
                 y: springY,
                 translateX: "-50%",
                 translateY: "-50%",
+                background:
+                    "radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 35%, transparent 70%)",
             }}
-            className="pointer-events-none fixed left-0 top-0 z-40 hidden h-[500px] w-[500px] rounded-full bg-white/[0.04] blur-[110px] mix-blend-screen md:block"
+            className="pointer-events-none fixed left-0 top-0 z-40 hidden h-[600px] w-[600px] rounded-full md:block"
         />
     );
 }
