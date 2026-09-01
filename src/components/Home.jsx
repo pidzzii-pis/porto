@@ -1,14 +1,10 @@
 import React from "react";
 import Button from "./Button.jsx";
 import ScrambleText from "./ScrambleText.jsx";
+import ProfilePhoto from "./ProfilePhoto.jsx";
+import { smoothScrollTo } from "./scrollTo.js";
 
 export default function Home() {
-    const scrollTo = (id) => {
-        document.getElementById(id)?.scrollIntoView({
-            behavior: "smooth",
-        });
-    };
-
     return (
         <section
             id="home"
@@ -81,53 +77,22 @@ export default function Home() {
                         <Button
                             variant="primary"
                             icon
-                            onClick={() => scrollTo("projects")}
+                            onClick={() => smoothScrollTo("projects")}
                         >
                             View Projects
                         </Button>
 
                         <Button
                             variant="secondary"
-                            onClick={() => scrollTo("career")}
+                            onClick={() => smoothScrollTo("career")}
                         >
                             About Me
                         </Button>
                     </div>
                 </div>
 
-                <div className="flex justify-center md:justify-end">
-                    <div className="relative">
-                        <div
-                            className="
-                                absolute
-                                -inset-6
-                                rounded-full
-                                bg-white/[0.04]
-                                blur-3xl
-                            "
-                        />
-
-                        <img
-                            src="/images/pio.jpeg"
-                            alt="Hafidzy"
-                            className="
-                                relative
-                                h-64
-                                w-64
-                                rounded-3xl
-                                object-cover
-                                grayscale
-                                shadow-2xl
-                                transition
-                                duration-700
-                                hover:grayscale-0
-                                md:h-80
-                                md:w-80
-                                lg:h-96
-                                lg:w-96
-                            "
-                        />
-                    </div>
+                <div className="flex justify-center pb-6 md:justify-end md:pb-0">
+                    <ProfilePhoto src="/images/pio.jpeg" alt="Hafidzy" />
                 </div>
             </div>
         </section>

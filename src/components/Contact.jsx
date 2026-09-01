@@ -1,4 +1,4 @@
-import React from "react";
+import { motion } from "motion/react";
 
 export default function Contact() {
     return (
@@ -6,16 +6,10 @@ export default function Contact() {
             id="contact"
             className="relative overflow-hidden bg-black px-6 py-32 text-white md:px-12 lg:px-20"
         >
-            {/* Background glow utama */}
             <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/[0.025] blur-[140px]" />
-
-            {/* Glow tambahan pojok kiri bawah */}
             <div className="pointer-events-none absolute -left-32 bottom-0 h-[400px] w-[400px] rounded-full bg-indigo-500/[0.05] blur-[120px]" />
-
-            {/* Glow tambahan pojok kanan bawah */}
             <div className="pointer-events-none absolute -right-32 bottom-20 h-[350px] w-[350px] rounded-full bg-pink-500/[0.04] blur-[120px]" />
 
-            {/* Dot grid pattern halus */}
             <div
                 className="pointer-events-none absolute inset-0 opacity-[0.15]"
                 style={{
@@ -27,10 +21,13 @@ export default function Contact() {
 
             <div className="relative mx-auto max-w-6xl">
 
-                {/* Heading */}
-                <div className="text-center">
-
-                    {/* Status badge */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center"
+                >
                     <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs text-zinc-400">
                         <span className="relative flex h-2 w-2">
                             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
@@ -51,19 +48,20 @@ export default function Contact() {
                     </h2>
 
                     <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-zinc-500 md:text-lg">
-                  Find me on social media and check out my travels, projects, and current work.
+                        Find me on social media and check out my travels, projects, and current work.
                     </p>
+                </motion.div>
 
-                </div>
-
-                {/* Social Cards */}
                 <div className="mx-auto mt-20 grid max-w-5xl gap-6 md:grid-cols-3">
 
-                    {/* Instagram */}
-                    <a
+                    <motion.a
                         href="https://instagram.com/pidzzii"
                         target="_blank"
                         rel="noopener noreferrer"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.5, delay: 0 }}
                         className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.06]"
                     >
                         <div className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-pink-500/[0.06] blur-3xl transition duration-500 group-hover:bg-pink-500/[0.12]" />
@@ -91,13 +89,16 @@ export default function Contact() {
                         <div className="relative mt-8 h-px w-full bg-white/10">
                             <div className="h-px w-0 bg-white transition-all duration-700 group-hover:w-full" />
                         </div>
-                    </a>
+                    </motion.a>
 
-                    {/* GitHub */}
-                    <a
+                    <motion.a
                         href="https://github.com/pidzzii-pis"
                         target="_blank"
                         rel="noopener noreferrer"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
                         className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.06]"
                     >
                         <div className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-white/[0.04] blur-3xl transition duration-500 group-hover:bg-white/[0.09]" />
@@ -123,13 +124,16 @@ export default function Contact() {
                         <div className="relative mt-8 h-px w-full bg-white/10">
                             <div className="h-px w-0 bg-white transition-all duration-700 group-hover:w-full" />
                         </div>
-                    </a>
+                    </motion.a>
 
-                    {/* Discord */}
-                    <a
-                        href="https://discord.com/users/740001334312304721"
+                    <motion.a
+                        href="https://discord.com/users/pizzpnyz"
                         target="_blank"
                         rel="noopener noreferrer"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
                         className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-white/[0.06]"
                     >
                         <div className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-indigo-500/[0.07] blur-3xl transition duration-500 group-hover:bg-indigo-500/[0.14]" />
@@ -155,15 +159,20 @@ export default function Contact() {
                         <div className="relative mt-8 h-px w-full bg-white/10">
                             <div className="h-px w-0 bg-white transition-all duration-700 group-hover:w-full" />
                         </div>
-                    </a>
+                    </motion.a>
 
                 </div>
 
-                {/* Bottom */}
-                <div className="mt-24 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-zinc-600 md:flex-row">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="mt-24 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-zinc-600 md:flex-row"
+                >
                     <p>Let's build something meaningful.</p>
                     <p>© 2026 Hafidzy.</p>
-                </div>
+                </motion.div>
 
             </div>
         </section>

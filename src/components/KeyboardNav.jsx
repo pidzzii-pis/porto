@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { smoothScrollTo } from "./scrollTo.js";
 
 const sections = [
     { key: "1", id: "home", label: "Home" },
@@ -22,7 +23,7 @@ export default function KeyboardNav() {
             const match = sections.find((s) => s.key === e.key);
             if (!match) return;
 
-            document.getElementById(match.id)?.scrollIntoView({ behavior: "smooth" });
+            smoothScrollTo(match.id);
             setHint(match.label);
 
             setTimeout(() => setHint(null), 1200);

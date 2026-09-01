@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Button from "./Button.jsx";
+import { smoothScrollTo } from "./scrollTo.js";
 
 export default function Navbar() {
     const [visible, setVisible] = useState(true);
@@ -15,7 +16,7 @@ export default function Navbar() {
                 setVisible(true);
             } else if (currentScrollY > lastScrollY.current) {
                 setVisible(false);
-                setMenuOpen(false); // tutup dropdown kalau navbar mau sembunyi
+                setMenuOpen(false);
             } else {
                 setVisible(true);
             }
@@ -29,9 +30,7 @@ export default function Navbar() {
 
     const scrollTo = (id) => {
         setMenuOpen(false);
-        document.getElementById(id)?.scrollIntoView({
-            behavior: "smooth",
-        });
+        smoothScrollTo(id);
     };
 
     const navLinks = [
@@ -67,7 +66,6 @@ export default function Navbar() {
                     Hafidzy.
                 </button>
 
-                {/* Menu desktop */}
                 <div className="hidden items-center gap-7 md:flex">
                     {navLinks.map((link) => (
                         <button
@@ -93,7 +91,6 @@ export default function Navbar() {
                     </Button>
                 </div>
 
-                {/* Tombol hamburger, cuma muncul di mobile */}
                 <button
                     onClick={() => setMenuOpen((prev) => !prev)}
                     aria-label="Toggle menu"
@@ -117,7 +114,6 @@ export default function Navbar() {
                 </button>
             </div>
 
-            {/* Dropdown mobile */}
             <AnimatePresence>
                 {menuOpen && (
                     <motion.div
