@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import Button from "./Button.jsx";
 
 export default function Navbar() {
     const [visible, setVisible] = useState(true);
+    const [menuOpen, setMenuOpen] = useState(false);
     const lastScrollY = useRef(0);
 
     useEffect(() => {
@@ -13,6 +15,7 @@ export default function Navbar() {
                 setVisible(true);
             } else if (currentScrollY > lastScrollY.current) {
                 setVisible(false);
+                setMenuOpen(false); // tutup dropdown kalau navbar mau sembunyi
             } else {
                 setVisible(true);
             }
@@ -25,6 +28,7 @@ export default function Navbar() {
     }, []);
 
     const scrollTo = (id) => {
+        setMenuOpen(false);
         document.getElementById(id)?.scrollIntoView({
             behavior: "smooth",
         });
@@ -63,6 +67,7 @@ export default function Navbar() {
                     Hafidzy.
                 </button>
 
+                {/* Menu desktop */}
                 <div className="hidden items-center gap-7 md:flex">
                     {navLinks.map((link) => (
                         <button
@@ -87,7 +92,69 @@ export default function Navbar() {
                         Get In Touch
                     </Button>
                 </div>
+
+                {/* Tombol hamburger, cuma muncul di mobile */}
+                <button
+                    onClick={() => setMenuOpen((prev) => !prev)}
+                    aria-label="Toggle menu"
+                    className="relative flex h-9 w-9 items-center justify-center md:hidden"
+                >
+                    <motion.span
+                        animate={menuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -5 }}
+                        transition={{ duration: 0.25 }}
+                        className="absolute h-[1.5px] w-5 bg-white"
+                    />
+                    <motion.span
+                        animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute h-[1.5px] w-5 bg-white"
+                    />
+                    <motion.span
+                        animate={menuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 5 }}
+                        transition={{ duration: 0.25 }}
+                        className="absolute h-[1.5px] w-5 bg-white"
+                    />
+                </button>
             </div>
+
+            {/* Dropdown mobile */}
+            <AnimatePresence>
+                {menuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                        className="overflow-hidden border-t border-white/5 bg-black/95 backdrop-blur-xl md:hidden"
+                    >
+                        <div className="flex flex-col gap-1 px-6 py-4">
+                            {navLinks.map((link, index) => (
+                                <motion.button
+                                    key={link.id}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.25, delay: index * 0.04 }}
+                                    onClick={() => scrollTo(link.id)}
+                                    className="rounded-lg px-3 py-3 text-left text-sm text-zinc-400 transition-colors duration-200 hover:bg-white/5 hover:text-white"
+                                >
+                                    {link.label}
+                                </motion.button>
+                            ))}
+
+                            <div className="mt-2 px-3">
+                                <Button
+                                    variant="primary"
+                                    icon
+                                    onClick={() => scrollTo("contact")}
+                                    className="w-full justify-center"
+                                >
+                                    Get In Touch
+                                </Button>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 }
