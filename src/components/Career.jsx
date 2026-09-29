@@ -16,7 +16,7 @@ const timeline = [
         status: "Ongoing",
         description:
             "Learning programming, web development, databases, mobile development, and application development..",
-        link: "https://skariga.web.id/",
+        link: "https://smkpgri3malang.my.id/",
     },
 ];
 
