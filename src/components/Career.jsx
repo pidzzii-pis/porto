@@ -83,7 +83,7 @@ export default function Career() {
                         <div className="mt-12 grid max-w-md grid-cols-3 gap-6">
                             <Counter value={2} suffix="+" label="Academic Year" />
                             <Counter value={10} suffix="+" label="Technology" />
-                            <Counter value={5} suffix="+" label="Project" />
+                            <Counter value={3} suffix="+" label="Project" />
                         </div>
                     </motion.div>
 
