@@ -177,8 +177,16 @@ export default function Technologies() {
                         {technologies.slice(0, 8).map((tech) => (
                             <span
                                 key={tech.name}
-                                className="rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-zinc-500 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
+                                className="group inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] py-2 pl-3.5 pr-5 text-sm text-zinc-500 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
                             >
+                                <img
+                                    src={tech.icon}
+                                    alt=""
+                                    loading="lazy"
+                                    className={`h-5 w-5 flex-shrink-0 object-contain opacity-80 transition duration-500 group-hover:opacity-100 ${
+                                        tech.name === "GitHub" ? "invert" : ""
+                                    }`}
+                                />
                                 {tech.name}
                             </span>
                         ))}
