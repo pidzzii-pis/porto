@@ -8,7 +8,6 @@ import SmoothScroll from "./components/SmoothScroll.jsx";
 import Home from "./pages/Home";
 import Career from "./components/Career.jsx";
 import Skills from "./components/Skills.jsx";
-import Interests from "./components/Interests.jsx";
 import Achievements from "./components/Achievements.jsx";
 import Technologies from "./components/Technologies.jsx";
 import Projects from "./components/Projects.jsx";
@@ -40,7 +39,6 @@ export default function App() {
                         <Home />
                         <Career />
                         <Skills />
-                        <Interests />
                         <Achievements />
                         <Technologies />
                         <Projects />

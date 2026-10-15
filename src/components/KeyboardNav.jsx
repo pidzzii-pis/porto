@@ -6,11 +6,10 @@ const sections = [
     { key: "1", id: "home", label: "Home" },
     { key: "2", id: "career", label: "Career" },
     { key: "3", id: "skills", label: "Skills" },
-    { key: "4", id: "interests", label: "Interests" },
-    { key: "5", id: "achievements", label: "Achievements" },
-    { key: "6", id: "technologies", label: "Technologies" },
-    { key: "7", id: "projects", label: "Projects" },
-    { key: "8", id: "contact", label: "Contact" },
+    { key: "4", id: "achievements", label: "Achievements" },
+    { key: "5", id: "technologies", label: "Technologies" },
+    { key: "6", id: "projects", label: "Projects" },
+    { key: "7", id: "contact", label: "Contact" },
 ];
 
 export default function KeyboardNav() {

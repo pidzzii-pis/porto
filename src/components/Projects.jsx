@@ -80,7 +80,47 @@ function BrowserFrame({ src, alt, url, accent }) {
 //     liveLink: "",
 //     status: "Ongoing",           // "Ongoing" atau "Completed"
 // },
-const localProjects = [];
+const localProjects = [
+    {
+        // ====== GANTI BAGIAN INI SAJA ======
+        title: "Peminjaman Kamera dan Tripod",                                // judul card
+        description: "A team project built with PHP Native, MySQL, and Bootstrap. I contributed to the Data Master module, focusing on equipment data management and CRUD operations.", // deskripsi
+        tech: ["PHP", "CSS"],                 // bahasa/teknologi (tambah/hapus bebas)
+        // ----- opsional -----
+        image: "/kamera.jpeg",                                                  // contoh: "/project1.png" (taruh gambar di folder public/)
+        url: "",                              // tampil di address bar mockup
+        repoLink: "https://github.com/gausvsvs-dotcom/ProjectPeminjaman-kamera-tripod",                 // link GitHub project
+        liveLink: "",                                               // KOSONG = tombol ke repo. Isi link deploy = tombol otomatis ke project
+        buttonLabel: "",                                            // opsional, teks tombol sendiri (kosong = otomatis)
+        status: "Ongoing",                                          // "Ongoing" atau "Completed"
+        accent: "indigo",                                           // warna glow: "indigo" atau "amber"
+    },
+];
+
+// ====== PENGATURAN CARD KIRI-KANAN (samar) ======
+// Kalau project cuma 1, card samar muncul di kiri & kanan supaya card utama ada di tengah.
+// Mau dimatikan? Ubah jadi false. Otomatis hilang kalau project sudah lebih dari 1.
+const SHOW_GHOST_CARDS = true;
+const GHOST_LABEL = "Coming soon";
+
+function GhostCard() {
+    return (
+        <div
+            aria-hidden="true"
+            className="pointer-events-none hidden select-none scale-95 opacity-25 blur-[1.5px] md:block"
+        >
+            <BrowserFrame src="" alt="" url="coming-soon" accent="" />
+            <div className="mt-5 flex justify-center">
+                <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-zinc-500">
+                    {GHOST_LABEL}
+                </span>
+            </div>
+            <div className="mx-auto mt-4 h-5 w-2/3 rounded bg-white/10" />
+            <div className="mx-auto mt-3 h-3 w-5/6 rounded bg-white/[0.06]" />
+            <div className="mx-auto mt-2 h-3 w-3/5 rounded bg-white/[0.06]" />
+        </div>
+    );
+}
 
 export default function Projects() {
     // Data dari backend Laravel (GET /api/projects); jika belum diatur, pakai localProjects.
@@ -90,6 +130,8 @@ export default function Projects() {
         if (!API_URL) return;
         api("/api/projects").then(setProjects).catch(() => {});
     }, []);
+
+    const single = SHOW_GHOST_CARDS && projects.length === 1;
 
     return (
         <section
@@ -124,7 +166,7 @@ export default function Projects() {
                     </div>
 
                     <a
-                        href="https://github.com/pidzzii-pis"
+                        href="https://github.com/gausvsvs-dotcom/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group flex items-center gap-2 rounded-full border border-white/10 px-5 py-2.5 text-sm text-zinc-400 transition duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
@@ -147,7 +189,14 @@ export default function Projects() {
                     </motion.div>
                 )}
 
-                <div className="mt-16 grid gap-10 md:grid-cols-2">
+                <div
+                    className={
+                        single
+                            ? "mt-16 grid items-center gap-10 md:grid-cols-[1fr_1.5fr_1fr]"
+                            : "mt-16 grid gap-10 md:grid-cols-2"
+                    }
+                >
+                    {single && <GhostCard />}
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.title}
@@ -155,7 +204,7 @@ export default function Projects() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: 0.6, delay: index * 0.15 }}
-                            className="group"
+                            className={`group ${single ? "text-center" : ""}`}
                         >
                             {/* Browser mockup untuk gambar */}
                             <BrowserFrame
@@ -166,7 +215,7 @@ export default function Projects() {
                             />
 
                             {/* Badge status + tech, di luar frame */}
-                            <div className="mt-5 flex flex-wrap items-center gap-2">
+                            <div className={`mt-5 flex flex-wrap items-center gap-2 ${single ? "justify-center" : ""}`}>
                                 <span
                                     className={`rounded-full border px-3 py-1 text-xs ${
                                         project.status === "Ongoing"
@@ -191,41 +240,28 @@ export default function Projects() {
                                 {project.title}
                             </h3>
 
-                            <p className="mt-3 max-w-md leading-7 text-zinc-400">
+                            <p className={`mt-3 max-w-md leading-7 text-zinc-400 ${single ? "mx-auto" : ""}`}>
                                 {project.description}
                             </p>
 
-                            <div className="mt-5 flex items-center gap-5">
-                                <a
-                                    href={project.repoLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1.5 text-sm text-zinc-400 transition duration-300 hover:text-white"
-                                >
-                                    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
-                                        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.16c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.74.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.35.78 1.04.78 2.1v3.1c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
-                                    </svg>
-                                    Repository
-                                </a>
-
-                                {project.liveLink && (
+                            {/* Tombol utama: otomatis ke Live Demo kalau liveLink diisi, kalau kosong ke Repository */}
+                            {(project.liveLink || project.repoLink) && (
+                                <div className={`mt-6 flex ${single ? "justify-center" : ""}`}>
                                     <a
-                                        href={project.liveLink}
+                                        href={project.liveLink || project.repoLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1.5 text-sm text-zinc-400 transition duration-300 hover:text-white"
+                                        className="group/btn inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-6 py-3 text-sm font-medium text-violet-200 transition duration-300 hover:border-violet-400/60 hover:bg-violet-500/20 hover:text-white"
                                     >
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-4 w-4">
-                                            <path d="M14 3h7v7" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M10 14 21 3" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                        Live Demo
+                                        {project.buttonLabel ||
+                                            (project.liveLink ? "Lihat Project" : "Lihat Repository")}
+                                        <span className="transition duration-500 group-hover/btn:translate-x-1">→</span>
                                     </a>
-                                )}
-                            </div>
+                                </div>
+                            )}
                         </motion.div>
                     ))}
+                    {single && <GhostCard />}
                 </div>
 
             </div>
