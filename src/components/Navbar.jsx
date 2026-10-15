@@ -61,9 +61,9 @@ export default function Navbar() {
             >
                 <button
                     onClick={() => scrollTo("home")}
-                    className="text-xl font-bold text-white transition-transform duration-300 hover:scale-105 hover:text-zinc-300"
+                    className="text-xl font-bold text-white transition-transform duration-300 hover:scale-105 hover:text-violet-300"
                 >
-                    Hafidzy.
+                    Diana.
                 </button>
 
                 <div className="hidden items-center gap-7 md:flex">
@@ -74,7 +74,7 @@ export default function Navbar() {
                             className="group relative text-sm text-zinc-400 transition-colors duration-300 hover:text-white"
                         >
                             {link.label}
-                            <span className="absolute -bottom-1.5 left-1/2 h-px w-0 -translate-x-1/2 bg-white transition-all duration-300 group-hover:w-full" />
+                            <span className="absolute -bottom-1.5 left-1/2 h-px w-0 -translate-x-1/2 bg-violet-400 transition-all duration-300 group-hover:w-full" />
                         </button>
                     ))}
                 </div>

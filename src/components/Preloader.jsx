@@ -17,7 +17,7 @@ export default function Preloader({ loading, onFinish }) {
         Array.from({ length: FRAGMENT_COUNT }, () => randomChars(3 + Math.floor(Math.random() * 3)))
     );
 
-    const name = "Hafidzy.";
+    const name = "Diana.";
 
     // Posisi awal tiap fragmen: tersebar dari berbagai arah (atas/bawah/kiri/kanan/diagonal)
     const fragments = useMemo(() => {
@@ -103,7 +103,7 @@ export default function Preloader({ loading, onFinish }) {
                                         ease: [0.16, 1, 0.3, 1],
                                     }}
                                     style={{ fontSize: f.size }}
-                                    className="pointer-events-none absolute select-none whitespace-nowrap font-mono font-bold text-white/80"
+                                    className="pointer-events-none absolute select-none whitespace-nowrap font-mono font-bold text-zinc-300/60"
                                 >
                                     {texts[i]}
                                 </motion.span>
@@ -134,7 +134,7 @@ export default function Preloader({ loading, onFinish }) {
                                 initial={{ scaleX: 0 }}
                                 animate={{ scaleX: 1 }}
                                 transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                                className="mt-6 h-px w-24 origin-left bg-white/30"
+                                className="mt-6 h-px w-24 origin-left bg-violet-400/50"
                             />
 
                             <motion.p

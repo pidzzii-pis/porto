@@ -133,7 +133,7 @@ export default function Technologies() {
                 <div className="absolute inset-0 bg-black/80" />
 
                 {/* RADIAL GRADIENT */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_75%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#050507_75%)]" />
 
                 {/* VIGNETTE */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.5),transparent_30%,transparent_70%,rgba(0,0,0,0.7))]" />
@@ -157,7 +157,7 @@ export default function Technologies() {
                     {/* Title */}
                     <h2 className="mt-6 text-5xl font-semibold leading-tight tracking-[-0.04em] md:text-7xl">
                         Tools I{" "}
-                        <span className="text-zinc-500">
+                        <span className="text-gradient">
                             work with.
                         </span>
                     </h2>

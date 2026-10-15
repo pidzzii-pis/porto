@@ -54,7 +54,7 @@ export default function Home() {
                     >
                         Hi, I'm{" "}
                         <span className="text-zinc-400">
-                            <ScrambleText text="Hafidzy I." />
+                            <ScrambleText text="Diana Prammudita" />
                         </span>
                     </h1>
 
@@ -92,7 +92,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex justify-center pb-6 md:justify-end md:pb-0">
-                    <ProfilePhoto src="/images/pio.jpeg" alt="Hafidzy" />
+                    <ProfilePhoto src="/images/pio.jpeg" alt="Diana" />
                 </div>
             </div>
         </section>

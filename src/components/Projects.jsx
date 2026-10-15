@@ -2,8 +2,8 @@ import { motion } from "motion/react";
 
 function BrowserFrame({ src, alt, url, accent }) {
     const accentGlow = {
-        indigo: "bg-indigo-500/20",
-        amber: "bg-amber-500/20",
+        indigo: "bg-violet-500/20",
+        amber: "bg-violet-500/20",
     }[accent] || "bg-white/10";
 
     return (
@@ -17,7 +17,7 @@ function BrowserFrame({ src, alt, url, accent }) {
             <div
                 className="
                     relative overflow-hidden rounded-2xl
-                    border border-white/10 bg-[#0a0a0a]
+                    border border-white/10 bg-[#09090c]
                     shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]
                     transition-transform duration-700 ease-out
                     [transform:perspective(1000px)_rotateX(2deg)_rotateY(-2deg)_scale(0.98)]
@@ -25,7 +25,7 @@ function BrowserFrame({ src, alt, url, accent }) {
                 "
             >
                 {/* Top bar / chrome */}
-                <div className="flex items-center gap-3 border-b border-white/10 bg-[#111113] px-4 py-3">
+                <div className="flex items-center gap-3 border-b border-white/10 bg-[#121216] px-4 py-3">
                     <div className="flex gap-1.5">
                         <span className="h-2.5 w-2.5 rounded-full bg-red-500/40" />
                         <span className="h-2.5 w-2.5 rounded-full bg-amber-500/40" />
@@ -42,7 +42,7 @@ function BrowserFrame({ src, alt, url, accent }) {
                 </div>
 
                 {/* Viewport gambar */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-[#0d0d0d]">
+                <div className="relative aspect-[16/10] overflow-hidden bg-[#0b0b0e]">
                     {src ? (
                         <img
                             src={src}
@@ -66,41 +66,28 @@ function BrowserFrame({ src, alt, url, accent }) {
     );
 }
 
-const projects = [
-    {
-        title: "Sistem Pendataan Loker",
-        description:
-            "A system for tracking items in school lockers using web development and a database..",
-        image: "/loker.png",
-        url: "loker.sekolahku.sch.id",
-        accent: "indigo",
-        tech: ["PHP", "MySQL", "Bootstrap"],
-        repoLink: "https://github.com/pidzzii-pis/",
-        liveLink: "",
-        status: "Ongoing",
-    },
-    {
-        title: "Finance Tracker",
-        description:
-            "An income and expense tracking app to help manage finances.",
-        image: "/finance.png",
-        url: "finance-tracker.vercel.app",
-        accent: "amber",
-        tech: ["React", "Tailwind CSS", "Laravel"],
-        repoLink: "https://github.com/pidzzii-pis/FinanceTracker/",
-        liveLink: "",
-        status: "Completed",
-    },
-];
+// Isi project kamu di sini. Contoh format satu project:
+// {
+//     title: "Nama Project",
+//     description: "Deskripsi singkat project.",
+//     image: "/nama-gambar.png",   // taruh gambar di folder public/
+//     url: "nama-project.vercel.app",
+//     accent: "indigo",            // "indigo" atau "amber" (warna glow)
+//     tech: ["React", "Tailwind CSS"],
+//     repoLink: "https://github.com/username/repo",
+//     liveLink: "",
+//     status: "Ongoing",           // "Ongoing" atau "Completed"
+// },
+const projects = [];
 
 export default function Projects() {
     return (
         <section
             id="projects"
-            className="relative overflow-hidden bg-[#050505] px-6 py-32 text-white md:px-12 lg:px-20"
+            className="relative overflow-hidden bg-[#060608] px-6 py-32 text-white md:px-12 lg:px-20"
         >
             <div className="pointer-events-none absolute -left-32 top-20 h-[400px] w-[400px] rounded-full bg-white/[0.03] blur-[130px]" />
-            <div className="pointer-events-none absolute -right-32 bottom-0 h-[450px] w-[450px] rounded-full bg-indigo-500/[0.05] blur-[130px]" />
+            <div className="pointer-events-none absolute -right-32 bottom-0 h-[450px] w-[450px] rounded-full bg-violet-500/[0.05] blur-[130px]" />
 
             <div className="relative mx-auto max-w-6xl">
 
@@ -137,6 +124,19 @@ export default function Projects() {
                     </a>
                 </motion.div>
 
+                {projects.length === 0 && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.6 }}
+                        className="mt-16 rounded-3xl border border-dashed border-white/10 bg-white/[0.02] px-6 py-20 text-center"
+                    >
+                        <p className="text-xs uppercase tracking-[0.3em] text-zinc-600">Coming soon</p>
+                        <p className="mt-3 text-zinc-500">Projects will be added here.</p>
+                    </motion.div>
+                )}
+
                 <div className="mt-16 grid gap-10 md:grid-cols-2">
                     {projects.map((project, index) => (
                         <motion.div
@@ -160,7 +160,7 @@ export default function Projects() {
                                 <span
                                     className={`rounded-full border px-3 py-1 text-xs ${
                                         project.status === "Ongoing"
-                                            ? "border-green-400/20 bg-green-500/10 text-green-400"
+                                            ? "border-violet-400/20 bg-violet-500/10 text-violet-400"
                                             : "border-white/15 bg-white/[0.03] text-zinc-400"
                                     }`}
                                 >

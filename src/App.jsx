@@ -13,6 +13,7 @@ import Technologies from "./components/Technologies.jsx";
 import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact.jsx";
 import KeyboardNav from "./components/KeyboardNav.jsx";
+import SectionDots from "./components/SectionDots.jsx";
 
 export default function App() {
     const [loading, setLoading] = useState(true);
@@ -32,6 +33,7 @@ export default function App() {
                     <ScrollProgress />
                     <Navbar />
                     <KeyboardNav />
+                    <SectionDots />
 
                     <main>
                         <Home />

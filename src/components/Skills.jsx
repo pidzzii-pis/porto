@@ -30,7 +30,7 @@ export default function Skills() {
             id="skills"
             className="
                 px-6 py-32
-                bg-[#0d0d0d]
+                bg-[#0b0b0e]
             "
         >
 
@@ -70,8 +70,8 @@ export default function Skills() {
                                     rounded-3xl
                                     border
                                     border-white/10
-                                    bg-[#111]
-                                    p-7
+                                    bg-[#0e0e12]
+                                    p-7 transition duration-500 hover:-translate-y-1 hover:border-violet-400/30
                                 "
                             >
                                 <h3 className="font-medium text-white">
@@ -87,7 +87,7 @@ export default function Skills() {
                                                 bg-white/5
                                                 px-4 py-2
                                                 text-sm
-                                                text-zinc-300
+                                                text-zinc-300 transition duration-300 hover:-translate-y-0.5 hover:bg-violet-500/20 hover:text-violet-200
                                             "
                                         >
                                             {skill}

@@ -4,11 +4,11 @@ import Counter from "./Counter.jsx";
 const timeline = [
     {
         period: "EDUCATION",
-        title: "MTS MUHAMMADIYAH 1 MALANG",
+        title: "SMP Negeri 1 Batu",
         status: "Completed",
         description:
             "The period of junior high school was the beginning of my educational journey.",
-        link: "https://mtsmuh1malang.sch.id/",
+        link: "https://smpnegeri01batu.sch.id/",
     },
     {
         period: "EDUCATION",
@@ -16,7 +16,7 @@ const timeline = [
         status: "Ongoing",
         description:
             "Learning programming, web development, databases, mobile development, and application development..",
-        link: "https://smkpgri3malang.my.id/",
+        link: "https://smkpgri3-mlg.sch.id/",
     },
 ];
 
@@ -26,7 +26,7 @@ export default function Career() {
             id="career"
             className="relative overflow-hidden border-t border-white/10 bg-black px-6 py-32 text-white md:px-12 lg:px-20"
         >
-            <div className="pointer-events-none absolute -left-40 top-0 h-[450px] w-[450px] rounded-full bg-indigo-500/[0.05] blur-[130px]" />
+            <div className="pointer-events-none absolute -left-40 top-0 h-[450px] w-[450px] rounded-full bg-violet-500/[0.05] blur-[130px]" />
             <div className="pointer-events-none absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-white/[0.03] blur-[130px]" />
 
             <div className="relative mx-auto max-w-6xl">
@@ -43,7 +43,7 @@ export default function Career() {
 
                     <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
                         About{" "}
-                        <span className="text-zinc-500">Me.</span>
+                        <span className="text-gradient">Me.</span>
                     </h2>
 
                     <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-400 md:text-lg">
@@ -75,7 +75,7 @@ export default function Career() {
                                     <div
                                         className={`h-2.5 w-2.5 rounded-full ${
                                             item.status === "Ongoing"
-                                                ? "bg-green-400"
+                                                ? "bg-violet-400"
                                                 : "bg-zinc-500"
                                         }`}
                                     />
@@ -96,7 +96,7 @@ export default function Career() {
                                             <span
                                                 className={`rounded-full px-3 py-1 text-xs ${
                                                     item.status === "Ongoing"
-                                                        ? "bg-green-500/10 text-green-400"
+                                                        ? "bg-violet-500/10 text-violet-400"
                                                         : "bg-white/5 text-zinc-400"
                                                 }`}
                                             >

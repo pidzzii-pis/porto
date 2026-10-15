@@ -26,7 +26,7 @@ export default function CursorGlow() {
                 translateX: "-50%",
                 translateY: "-50%",
                 background:
-                    "radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 35%, transparent 70%)",
+                    "radial-gradient(circle, rgba(139,92,246,0.12) 0%, rgba(139,92,246,0.04) 35%, transparent 70%)",
             }}
             className="pointer-events-none fixed left-0 top-0 z-40 hidden h-[600px] w-[600px] rounded-full md:block"
         />

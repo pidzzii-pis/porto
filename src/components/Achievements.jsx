@@ -36,7 +36,7 @@ export default function Achievements() {
             id="achievements"
             className="relative overflow-hidden border-t border-white/10 bg-black px-6 py-32 text-white md:px-12 lg:px-20"
         >
-            <div className="pointer-events-none absolute -right-40 top-10 h-[400px] w-[400px] rounded-full bg-amber-500/[0.04] blur-[130px]" />
+            <div className="pointer-events-none absolute -right-40 top-10 h-[400px] w-[400px] rounded-full bg-violet-500/[0.04] blur-[130px]" />
 
             <div className="relative mx-auto max-w-6xl">
                 <motion.div
@@ -51,7 +51,7 @@ export default function Achievements() {
 
                     <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
                         Certificate{" "}
-                        <span className="text-zinc-500">& Achievement.</span>
+                        <span className="text-gradient">& Achievement.</span>
                     </h2>
 
                     <p className="mt-4 max-w-xl leading-7 text-zinc-500">
@@ -88,7 +88,7 @@ export default function Achievements() {
                                             className={`flex h-12 w-12 items-center justify-center rounded-xl border transition-transform duration-500 group-hover:scale-110 ${
                                                 isComingSoon
                                                     ? "border-white/10 bg-white/[0.03] text-zinc-600"
-                                                    : "border-amber-400/20 bg-amber-500/10 text-amber-400"
+                                                    : "border-violet-400/20 bg-violet-500/10 text-violet-400"
                                             }`}
                                         >
                                             <MedalIcon />
@@ -114,7 +114,7 @@ export default function Achievements() {
                                     </p>
 
                                     {item.link && (
-                                        <span className="mt-4 inline-flex items-center gap-1 text-xs text-zinc-600 transition duration-300 group-hover:text-amber-400">
+                                        <span className="mt-4 inline-flex items-center gap-1 text-xs text-zinc-600 transition duration-300 group-hover:text-violet-400">
                                             View certificate
                                             <span className="transition duration-500 group-hover:translate-x-1">→</span>
                                         </span>

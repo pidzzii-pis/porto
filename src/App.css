@@ -1,7 +1,25 @@
 @import "tailwindcss";
 
+/* Tema baru: hitam keunguan + ungu + abu-abu.
+   Nama kelas lama (bg-black, text-zinc-*) tetap dipakai, hanya nilainya yang diganti. */
+@theme {
+    --color-black: #050507;
+
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f0f0f2;
+    --color-zinc-200: #dcdce0;
+    --color-zinc-300: #b9b9c2;
+    --color-zinc-400: #94949f;
+    --color-zinc-500: #6e6e7a;
+    --color-zinc-600: #4d4d57;
+    --color-zinc-700: #36363e;
+    --color-zinc-800: #25252b;
+    --color-zinc-900: #18181c;
+    --color-zinc-950: #0e0e11;
+}
+
 html {
-    background-color: #000;
+    background-color: #050507;
 }
 
 body {
@@ -10,9 +28,42 @@ body {
     min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #000;
+    background-color: #050507;
 }
 
 #root {
     min-height: 100vh;
+}
+
+/* Teks gradient ungu dengan kilau yang bergerak pelan */
+.text-gradient {
+    background: linear-gradient(90deg, #e4e4e7, #a78bfa, #e4e4e7);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 7s linear infinite;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+@keyframes aurora {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(50px, -40px, 0) scale(1.2); }
+}
+
+.animate-aurora {
+    animation: aurora 14s ease-in-out infinite;
+}
+
+@keyframes scrollHint {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .text-gradient,
+    .animate-aurora { animation: none; }
 }

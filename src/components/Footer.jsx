@@ -18,7 +18,7 @@ export default function Footer() {
             ">
 
                 <p>
-                    © 2026 Hafidzy.
+                    © 2026 Diana.
                 </p>
 
 

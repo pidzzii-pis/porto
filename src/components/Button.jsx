@@ -1,15 +1,15 @@
 import MagneticButton from "./MagneticButton.jsx";
 
 const base =
-    "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-medium transition-colors duration-300";
+    "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3 text-sm font-medium transition-all duration-300";
 
 const variants = {
-    primary: "bg-white text-black",
-    secondary: "border border-white/15 bg-white/[0.02] text-white hover:border-white/30 hover:bg-white/[0.06]",
+    primary: "bg-violet-600 text-white shadow-[0_0_24px_-10px_rgba(139,92,246,0.6)] hover:bg-violet-500",
+    secondary: "border border-white/15 bg-white/[0.03] text-white hover:border-violet-300/40 hover:bg-white/[0.07]",
 };
 
 const sweepColor = {
-    primary: "via-black/10",
+    primary: "bg-violet-600 text-white shadow-[0_0_24px_-10px_rgba(139,92,246,0.6)] hover:bg-violet-500",
     secondary: "via-white/20",
 };
 
