@@ -81,7 +81,20 @@ function BrowserFrame({ src, alt, url, accent }) {
 //     status: "Ongoing",           // "Ongoing" atau "Completed"
 // },
 const localProjects = [
+    // ====== PROJECT 2 (ganti isinya) ======
     {
+        title: "REKAM",
+        description: "A modern photography and videography booking platform designed with an elegant and minimal interface. It helps users discover talents, explore portfolios, choose services, and book professional photographers or videographers for their special moments.",
+        tech: ["React", "Laravel", "MySQL"],
+        image: "/rekam.png",
+        url: "",
+        repoLink: "",
+        liveLink: "",
+        buttonLabel: "",
+        status: "OnProcces",
+        accent: "indigo",
+    },
+       {
         // ====== GANTI BAGIAN INI SAJA ======
         title: "Peminjaman Kamera dan Tripod",                                // judul card
         description: "A team project built with PHP Native, MySQL, and Bootstrap. I contributed to the Data Master module, focusing on equipment data management and CRUD operations.", // deskripsi
@@ -94,6 +107,20 @@ const localProjects = [
         buttonLabel: "",                                            // opsional, teks tombol sendiri (kosong = otomatis)
         status: "Ongoing",                                          // "Ongoing" atau "Completed"
         accent: "indigo",                                           // warna glow: "indigo" atau "amber"
+    },
+
+    // ====== PROJECT 3 (ganti isinya) ======
+    {
+        title: "CRUD Android",
+        description: "school learning project built with Android Studio to practice basic CRUD (Create, Read, Update, Delete) operations. The project helped develop an understanding of mobile app development, user interfaces, and data management in Android.",
+        tech: ["Java" , "MySQL"],
+        image: "/android.jpeg",
+        url: "",
+        repoLink: "https://github.com/gausvsvs-dotcom/ANDROID",
+        liveLink: "",
+        buttonLabel: "",
+        status: "Ongoing",
+        accent: "indigo",
     },
 ];
 
@@ -166,7 +193,7 @@ export default function Projects() {
                     </div>
 
                     <a
-                        href="https://github.com/gausvsvs-dotcom/"
+                        href="https://github.com/gausvsvs-dotcom"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group flex items-center gap-2 rounded-full border border-white/10 px-5 py-2.5 text-sm text-zinc-400 transition duration-300 hover:border-white/20 hover:bg-white/[0.05] hover:text-white"
@@ -193,6 +220,8 @@ export default function Projects() {
                     className={
                         single
                             ? "mt-16 grid items-center gap-10 md:grid-cols-[1fr_1.5fr_1fr]"
+                            : projects.length >= 3
+                            ? "mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-3"
                             : "mt-16 grid gap-10 md:grid-cols-2"
                     }
                 >
