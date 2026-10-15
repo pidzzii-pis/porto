@@ -36,6 +36,7 @@ export default function Navbar() {
     const navLinks = [
         { id: "career", label: "About" },
         { id: "skills", label: "Skills" },
+        { id: "interests", label: "Interests" },
         { id: "achievements", label: "Achievements" },
         { id: "projects", label: "Projects" },
         { id: "contact", label: "Contact" },

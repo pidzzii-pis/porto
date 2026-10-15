@@ -1,25 +1,40 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { API_URL, api } from "../api.js";
 
 // GANTI dengan alamat email kamu, form akan membuka aplikasi email ke alamat ini.
-const EMAIL = "emailkamu@gmail.com";
+const EMAIL = "dianapramudita86@gmail.com";
 
 const inputClass =
     "w-full rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-3.5 text-sm text-white placeholder-zinc-600 outline-none transition duration-300 focus:border-violet-400/50 focus:bg-violet-500/[0.06] focus:shadow-[0_0_30px_-10px_rgba(168,85,247,0.6)]";
 
 export default function Contact() {
     const [form, setForm] = useState({ name: "", email: "", message: "" });
+    const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
     const handleChange = (e) =>
         setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const openMailto = () => {
         const subject = encodeURIComponent(`Portfolio message from ${form.name}`);
         const body = encodeURIComponent(
             `${form.message}\n\n— ${form.name} (${form.email})`
         );
         window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!API_URL) return openMailto(); // backend belum diatur -> pakai email biasa
+        setStatus("sending");
+        try {
+            await api("/api/contact", { method: "POST", body: JSON.stringify(form) });
+            setStatus("sent");
+            setForm({ name: "", email: "", message: "" });
+        } catch {
+            setStatus("error");
+            openMailto();
+        }
     };
 
     return (
@@ -113,7 +128,7 @@ export default function Contact() {
                     </motion.a>
 
                     <motion.a
-                        href="https://github.com/pidzzii-pis"
+                        href="https://github.com/gausvsvs-dotcom/"
                         target="_blank"
                         rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 30 }}
@@ -138,7 +153,7 @@ export default function Contact() {
 
                         <div className="relative mt-10">
                             <p className="text-sm uppercase tracking-[0.2em] text-zinc-600">GitHub</p>
-                            <h3 className="mt-2 text-2xl font-medium">@pidzzii-pis</h3>
+                            <h3 className="mt-2 text-2xl font-medium">@diiaanaa</h3>
                             <p className="mt-3 text-sm text-zinc-500">Explore my projects & source code.</p>
                         </div>
 
@@ -196,7 +211,7 @@ export default function Contact() {
                     </div>
 
                     <button
-                        type="submit"
+                        type="submit" disabled={status === "sending"}
                         className="group relative mt-6 inline-flex items-center gap-2 overflow-hidden rounded-full bg-violet-600 hover:bg-violet-500 px-6 py-3 text-sm font-medium text-white shadow-[0_0_30px_-8px_rgba(168,85,247,0.7)] transition-all duration-300 hover:shadow-[0_0_40px_-6px_rgba(168,85,247,0.95)] active:scale-95"
                     >
                         Send via Email
@@ -204,6 +219,16 @@ export default function Contact() {
                             <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </button>
+                            {status === "sent" && (
+                                <p className="mt-4 text-center text-sm text-violet-300">
+                                    Message sent. Thank you!
+                                </p>
+                            )}
+                            {status === "error" && (
+                                <p className="mt-4 text-center text-sm text-zinc-500">
+                                    Server unavailable, opening your email app instead.
+                                </p>
+                            )}
                 </motion.form>
 
                 <motion.div

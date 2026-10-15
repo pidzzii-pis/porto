@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { API_URL, api } from "../api.js";
 
 function BrowserFrame({ src, alt, url, accent }) {
     const accentGlow = {
@@ -78,9 +80,17 @@ function BrowserFrame({ src, alt, url, accent }) {
 //     liveLink: "",
 //     status: "Ongoing",           // "Ongoing" atau "Completed"
 // },
-const projects = [];
+const localProjects = [];
 
 export default function Projects() {
+    // Data dari backend Laravel (GET /api/projects); jika belum diatur, pakai localProjects.
+    const [projects, setProjects] = useState(localProjects);
+
+    useEffect(() => {
+        if (!API_URL) return;
+        api("/api/projects").then(setProjects).catch(() => {});
+    }, []);
+
     return (
         <section
             id="projects"
